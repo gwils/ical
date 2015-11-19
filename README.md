@@ -13,3 +13,44 @@ I've setup on my server a crontab that will run this command every 5
 minutes. My org-mode files are stored in dropbox, so this update is
 replicated to my dropbox which then my desktop computer will download
 if there is any change.
+
+## Example output
+
+``` org
+* DONE Cafe Bookique
+  SCHEDULED: <2015-08-26>
+  - State "DONE"       from "TODO"       [2015-08-26]
+
+* DONE Lez Muvi at astra
+  SCHEDULED: <2015-08-31>
+  - State "DONE"       from "TODO"       [2015-08-31]
+
+* DONE Meet Giulia at p. Italia
+  SCHEDULED: <2015-09-01>
+  - State "DONE"       from "TODO"       [2015-09-01]
+
+* DONE Ping Dave on content
+  SCHEDULED: <2015-09-03>
+  - State "DONE"       from "TODO"       [2015-09-03]
+
+* DONE Espressioni
+  SCHEDULED: <2015-09-03>
+  - State "DONE"       from "TODO"       [2015-09-03]
+
+* DONE Stay at Hotel Glam Milano
+  SCHEDULED: <2015-09-04>
+  - State "DONE"       from "TODO"       [2015-09-06]
+
+* DONE Go get a sheet for toga. And maybe a sword
+  SCHEDULED: <2015-09-04>
+  - State "DONE"       from "TODO"       [2015-09-04]
+
+* DONE Get train to Milan (leaves at 17:43)
+  SCHEDULED: <2015-09-04>
+  - State "DONE"       from "TODO"       [2015-09-04]
+
+* DONE The Sword live in Milan
+  SCHEDULED: <2015-09-04>
+  - State "DONE"       from "TODO"       [2015-09-04]
+
+```
