@@ -54,3 +54,11 @@ if there is any change.
   - State "DONE"       from "TODO"       [2015-09-04]
 
 ```
+
+## Known issues
+
+I can't be bothered to resolve time zones yet. There is some work
+involved in reading them in, involving daylight savings time. For now
+everything is assumed to be UTC, but given that the main use-case,
+outputting org-mode files, only outputs dates, this is not a huge
+problem.
