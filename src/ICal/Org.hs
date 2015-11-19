@@ -46,25 +46,29 @@ data Event =
   deriving (Show)
 
 -- | Handy exporting function.
-exportFromToFile :: FilePath -> FilePath -> IO ()
-exportFromToFile from to =
+exportFromToFile :: Day -> FilePath -> FilePath -> IO ()
+exportFromToFile base from to =
   do obj <- tokenizeObjectFromFile from
      today <- getCurrentTime
      case parseFromObject obj of
        Left er -> error (show er)
        Right es ->
          LT.writeFile to
-                      (LT.toLazyText (buildDocument today es))
+                      (LT.toLazyText (buildDocument base today es))
 
 -- | Parse an iCalendar object into an Org mode document.
 parseFromObject :: Object -> Either ParseError [Event]
 parseFromObject s = runIdentity (parseEither s documentParser)
 
 -- | Build an org-mode document.
-buildDocument :: UTCTime -> [Event] -> Builder
-buildDocument today =
+buildDocument :: Day -> UTCTime -> [Event] -> Builder
+buildDocument base today =
   mconcat .
   map build .
+  dropWhile (\e ->
+               utctDay (fromMaybe (eventStart e)
+                                  (eventEnd e)) <
+               base) .
   sortBy (comparing eventStart)
   where build event =
           mconcat ["* " <> todo <> LT.fromText (eventTitle event)
