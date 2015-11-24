@@ -7,6 +7,17 @@ iCalendar parser.
     $ ical-org
     ical-org: expected <input.ics> <output.org> [--base=YYYY-MM-DD (default: 1970-01-01)]
 
+## Install
+
+    $ stack install ical
+
+## Dev
+
+    $ git clone https://github.com/chrisdone/ical.git
+    $ cd ical
+    $ stack build
+    $ stack exec -- ical-org input.ics output.org
+
 ## Typical use
 
 I've setup on my server a crontab that will run this command every 5
