@@ -10,10 +10,32 @@ iCalendar parser.
 ## Typical use
 
 I've setup on my server a crontab that will run this command every 5
-minutes. My org-mode files are stored in dropbox, so this update is
-replicated to my dropbox which then my desktop computer will download
-if there is any change. Open the file e.g. `gc.org` into an Emacs
-buffer and enable `M-x auto-revert-mode`.
+minutes.
+
+Here is my crontab entry:
+
+    */5 * * * * sh /home/chris/gc-update
+
+Here is my `gc-update` script:
+
+``` sh
+mkdir -p /tmp/ical
+cd /tmp/ical
+
+wget https://calendar.google.com/calendar/ical/chrisdone%40gmail.com/private-<my code here>/basic.ics
+/home/chris/.local/bin/ical-org basic.ics basic.org --base=2015-06-01
+
+cp basic.org /home/chris/Dropbox/Org/gc.org
+
+rm -r /tmp/ical
+```
+
+My org-mode files are stored in Dropbox, so this update is replicated
+to my Dropbox which then my desktop computer will download only if
+there is any change.
+
+Open the file e.g. `gc.org` into an Emacs buffer and enable `M-x
+auto-revert-mode`.
 
 ## Example output
 
