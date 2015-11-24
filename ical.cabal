@@ -1,6 +1,6 @@
 name:                ical
 version:             0.0.0
-synopsis:            iCalendar format parser.
+synopsis:            iCalendar format parser and org-mode converter.
 description:         Please see README.md
 homepage:            http://github.com/chrisdone/ical#readme
 license:             BSD3
