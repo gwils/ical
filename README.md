@@ -2,6 +2,9 @@
 
 iCalendar parser.
 
+Also usable as a command-line tool called `ical-org` to generate
+org-mode agenda files.
+
 ## Usage
 
     $ ical-org
